@@ -1,0 +1,68 @@
+<h3 class="view-title"><i class="bi bi-person-fill-gear"></i> Employee Management</h3>
+
+<div class="row g-2">
+  <div class="col-lg-9 col-12 order-lg-first order-last">
+    <button class="btn btn-success" (click)="openEmployeeForm()">
+      <i class="bi bi-plus-lg"></i> Add New Employee
+    </button>
+
+    <app-no-data image="assets/no-employee.jpg" text="Employee" *ngIf="employees.length == 0"></app-no-data>
+
+    <table class="table table-striped mt-2" *ngIf="employees.length > 0">
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Phone</td>
+          <td>Email</td>
+          <td>NRC No</td>
+          <td>Assign At</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.phone }}</td>
+          <td>{{ employee.nrcNumber }}</td>
+          <td>{{ employee.assignAt }}</td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-outline-primary me-2" (click)="updateEmployee(employee)">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <a href="" class="btn btn-sm btn-outline-warning">
+              <i class="bi bi-send"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-lg-3 col-12">
+    <div class="card search-card">
+      <div class="card-header">
+        <h4>Search Employee</h4>
+      </div>
+
+      <div class="card-body">
+        <label class="form-label" for="emp_code">Employee Code</label>
+        <input #empId (change)="searchParams.id = +empId.value" type="text" id="emp_code" class="form-control mb-3"
+          placeholder="Enter employee code">
+
+        <label for="name" class="form-label">Employee Name</label>
+        <input #empName (change)="searchParams.name = empName.value" type="text" id="name" class="form-control mb-3"
+          placeholder="Enter employee name">
+
+        <label for="phone" class="form-label">Employee Phone</label>
+        <input #empPhone (change)="searchParams.phone = empPhone.value" type="text" id="phone" class="form-control mb-3"
+          placeholder="Enter employee phone">
+
+        <button class="btn btn-success w-100" (click)="search()">
+          <i class="bi bi-search"></i> Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <app-manager-employee-form [employee]="targetEmplyoee" (onSave)="saveEmployee($event)"></app-manager-employee-form>

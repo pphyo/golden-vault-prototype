@@ -1,0 +1,340 @@
+/* You can add global styles to this file, and also import other style files */
+
+$enable-rounded: false;
+$primary: #0074c0;
+$secondary: #ceced1;
+$success: #009b4d;
+$warning: #ffcc00;
+$info: #0099e1;
+$dark: #000000;
+$light: #fefefe;
+$ptf: 'PT Serif', serif;
+$popf: 'Poppins', sans-serif;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+.btn-success {
+  color: $light;
+}
+
+.btn-success:hover {
+  background-color: #00c361;
+  color: $light;
+}
+
+.btn-outline-success:hover {
+  background-color: $success;
+  color: $light;
+}
+
+body {
+  font-family: $ptf;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.view-title {
+  font-size: 25px;
+  margin: 25px auto;
+}
+
+.text-overflow-ellipse {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.one-line {
+  -webkit-line-clamp: 1;
+}
+
+.three-line {
+  -webkit-line-clamp: 3;
+}
+
+.left-nav {
+  position: fixed;
+  top: -1;
+  left: 0;
+  bottom: 0;
+}
+
+.left-nav .brand {
+  height: 80px;
+  padding: 24px 0;
+}
+
+.left-nav .brand > a {
+  line-height: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.left-nav .nav-menu-link {
+  display: block;
+  text-decoration: none;
+  font-size: 18px;
+  height: 40px;
+  color: #373636;
+  line-height: 40px;
+}
+
+.left-nav .nav-menu-link:hover, .left-nav .active {
+  background-color: $success;
+  border-radius: 0 5px 5px 0;
+  color: $light;
+}
+
+main {
+  position: absolute;
+  left: 16.3%;
+}
+
+.category-box {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-left: 5px solid rgba(0, 0, 0, 0.7);
+  font-family: $popf;
+}
+
+.category-box:hover, .catalog-box:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.catalog-box {
+  font-family: $popf;
+}
+
+.catalog-box a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.catalog-box h5 {
+  font-size: 21px;
+  font-weight: 500px;
+}
+
+.catalog-box .catalog-box-description {
+  font-size: 12px;
+  font-weight: 400;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 0;
+  height: 54px;
+}
+
+.stars {
+  letter-spacing: 5px;
+}
+
+.catalog-box .stars i{
+  color: #333;
+}
+
+.catalog-box .infos {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+.catalog-box .infos > .cat-weight {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.catalog-box .infos > .price {
+  font-size: 18px;
+  color: #707070;
+  font-weight: 600;
+}
+
+.catalog-box .catalog-box-footer {
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  padding: $spacer;
+  border-top: none;
+}
+
+.carousel-item > img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.carousel-img {
+  width: calc((100% / 5) - 2px);
+  height: 120px;
+  cursor: grab;
+}
+
+.detail-card {
+  height: 100%;
+}
+
+.catalog-descritpion {
+  overflow: scroll;
+  text-overflow: ellipsis;
+}
+
+.catalog-tab {
+  height: 40px;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 1px;
+}
+
+.catalog-tab > .catalog-item {
+  text-align: center;
+  padding: 0.5rem $spacer;
+  width: 130px;
+  cursor: pointer;
+}
+
+.catalog-tab > .catalog-item:hover, .catalog-tab > .active {
+  border-bottom: 4px solid $success;
+  color: #333;
+}
+
+.cart > .cart-header {
+  background-color: $success;
+  padding: $spacer;
+  border-radius: 5px;
+  color: $light;
+}
+
+.cart > .cart-body {
+  padding: $spacer;
+}
+
+.filter-category-name-wrapper {
+  margin-top: 1px;
+}
+
+.filter-category-name-wrapper span {
+  display: inline-block;
+  padding: 3px 10px;
+  background-color: #d2d2d2;
+  color: $dark;
+  font-size: 12px;
+  margin-right: 4px;
+}
+
+.floating-cart button {
+  background: #ecf0f3;
+  position: relative;
+  height: 60px;
+  width: 60px;
+  margin: 0 10px;
+  display: inline-flex;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: all 0.3s;
+  box-shadow: -3px -3px 7px #ffffff,
+              3px 3px 5px #ceced1;
+}
+
+.floating-cart button:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  background: #ecf0f3;
+  box-shadow: inset -3px -3px 7px #ffffff,
+              inset 3px 3px 5px #ceced1;
+}
+
+.floating-cart button i {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 25px;
+  line-height: 60px;
+}
+
+.floating-cart button span {
+  position: absolute;
+  top: 5%;
+  left: 45%;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.floating-cart button:hover i {
+  transform: scale(0.9);
+}
+
+.floating-cart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.cat-filter-box {
+  padding: $spacer;
+  border: 1px solid rgb(0, 0, 0, 0.175);
+}
+
+.cat-filter-box > .cat-filter-box-title {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: rgb(151, 151, 152);
+}
+
+.cat-filter-box .cat-filter-name {
+  color: rgb(42, 42, 42);
+}
+
+.cat-filter-box .item-count {
+  font-size: 13px;
+  padding: 1px 7px;
+  border-radius: 3px;
+  background-color: rgb(0, 0, 0, 0.175);
+  color: rgb(128, 128, 130);
+}
+
+.cat-filter-box button {
+  padding: 2px 6px;
+  border: none;
+  font-size: 12px;
+  color: $primary;
+  background-color: #c7deed;
+  border-radius: 10px;
+}
+
+.cat-filter-box button:hover {
+  background-color: #9dd2f6;
+}
+
+.cat-input {
+  border: none;
+}
+
+.cat-input:focus {
+  border: none;
+  border-color: $light;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255);
+}
+
+.search-card h4 {
+  font-size: 20px;
+}
+
+.search-card label, .search-card button {
+  font-size: 16px;
+}
+
+.search-card input {
+  height: 35px;
+}
+
+.search-card input::placeholder {
+  font-size: 15px;
+}

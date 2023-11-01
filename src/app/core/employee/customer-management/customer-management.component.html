@@ -1,0 +1,71 @@
+<h3 class="view-title"><i class="bi bi-person-raised-hand"></i> Cusomter Management</h3>
+
+<div class="row g-2">
+  <div class="col-lg-9 col-12 order-lg-first order-last">
+    <button class="btn btn-success" [routerLink]="['..', 'edit']">
+      <i class="bi bi-plus-lg"></i> Add New Customer
+    </button>
+
+    <table class="table table-striped mt-2" *ngIf="customers.length > 0">
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Phone</td>
+          <td>Email</td>
+          <td>NRC No</td>
+          <td>Register At</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.phone }}</td>
+          <td>{{ customer.nrcNumber }}</td>
+          <td>{{ customer.registAt | date: 'MMM dd yyyy' }}</td>
+          <td class="text-center">
+            <a class="btn btn-sm btn-outline-primary me-2" [routerLink]="['/employee', 'customer', 'edit']"
+              [queryParams]="{ id: customer.id }">
+              <i class="bi bi-pencil-square"></i>
+            </a>
+            <a href="" class="btn btn-sm btn-outline-warning">
+              <i class="bi bi-send"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <app-no-data text="Customer" *ngIf="customers.length == 0" image="assets/no-customer.jpg"></app-no-data>
+  </div>
+
+  <div class="col-lg-3 col-12">
+    <div class="card search-card">
+      <div class="card-header">
+        <h4>Search Cusomter</h4>
+      </div>
+
+      <div class="card-body">
+        <label class="form-label" for="cust_code">Customer Code</label>
+        <input #custId (change)="searchParams.id = +custId.value" type="number" id="cust_code" class="form-control mb-3"
+          placeholder="Enter customer code">
+
+        <label for="name" class="form-label">Customer Name</label>
+        <input #custName (change)="searchParams.name = custName.value" type="text" id="name" class="form-control mb-3"
+          placeholder="Enter customer name">
+
+        <label for="phone" class="form-label">Customer Phone</label>
+        <input #custPhone (change)="searchParams.phone = custPhone.value" type="text" id="phone"
+          class="form-control mb-3" placeholder="Enter customer phone">
+
+        <label for="address" class="form-label">Customer Address</label>
+        <input #custAddress (change)="searchParams.address = custAddress.value" type="text" id="address"
+          class="form-control mb-3" placeholder="Enter customer address">
+
+        <button class="btn btn-success w-100" (click)="search()">
+          <i class="bi bi-search"></i> Search
+        </button>
+      </div>
+    </div>
+  </div>
