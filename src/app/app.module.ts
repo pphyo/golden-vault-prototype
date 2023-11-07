@@ -19,8 +19,8 @@ import { WidgetsModule } from './utils/widgets/widgets.module';
     HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptor, multi: true },
     { provide: ErrorHandler,
       useClass: AppErrorHandler }
   ],

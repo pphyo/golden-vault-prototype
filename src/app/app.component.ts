@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ErrorHandler, Inject, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ErrorHandler, Inject, OnInit, ViewChild } from '@angular/core';
 import { ErrorDialogComponent } from './utils/widgets/dialog/error-dialog/error-dialog.component';
 import { AppErrorHandler } from './utils/apis/error/app-error-handler';
 
@@ -15,6 +15,6 @@ export class AppComponent implements AfterViewInit {
   constructor(@Inject(ErrorHandler) private errorHandler: AppErrorHandler) {}
 
   ngAfterViewInit(): void {
-      this.errorHandler.errorDialog = this.errorDialog
+    this.errorHandler.errorDialog = this.errorDialog
   }
 }

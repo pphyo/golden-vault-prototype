@@ -32,7 +32,7 @@ export class ManagerEmployeeManagementComponent implements OnInit {
   }
 
   saveEmployee(data: any) {
-    this.manEmpService.save(data).subscribe(resp => {
+    this.manEmpService.save(data).subscribe((resp: any) => {
       if(resp) {
         this.employeeForm?.hideEmployeeForm()
         this.employeeForm?.initEmployeeForm()
