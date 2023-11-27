@@ -25,13 +25,16 @@ export class EmployeeCatalogService {
   }
 
   private create(value: any) {
+
     let result = value
+
     if(this.catalogs.length) {
       let id = this.catalogs[this.catalogs.length - 1].id
       result.id = id + 1
     } else {
       result.id = 1
     }
+
     this.catalogs.push(result)
     return of(this.catalogs)
   }
@@ -50,7 +53,9 @@ export class EmployeeCatalogService {
 
   findById(id: number) {
     let index = this.catalogs.findIndex(catalog => catalog.id = id)
-    return of(this.catalogs[index])
+    let result: {info: any, images: []} = {info: {}, images: []}
+    result.info = this.catalogs[index]
+    return of(result)
   }
 
   uploadPhotos(id: number, photos: FileList) {

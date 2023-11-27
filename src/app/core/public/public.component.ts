@@ -45,7 +45,7 @@ export class PublicComponent implements OnInit {
 
   signIn() {
     this.securityService.singIn(this.form.value)
-        .subscribe(resp => {
+        .subscribe((resp: any) => {
           if(resp) {
             this.context.activeUser = resp
             this.modalDialog?.hideDialog()

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
+import { EmployeeCategoryService } from '../employee/employee-category.service';
 
 const API = `${environment.baseApi}/public/categories`
 
@@ -9,9 +10,10 @@ const API = `${environment.baseApi}/public/categories`
 })
 export class PublicCategoryService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private empCat: EmployeeCategoryService) { }
 
   findAll() {
-    return this.http.get<any[]>(API)
+    return this.empCat.search()
+    // return this.http.get<any[]>(API)
   }
 }
